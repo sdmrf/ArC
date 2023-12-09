@@ -8,7 +8,7 @@
     <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
     <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
 
-    <!-- Custom JavaScript component for click event -->
+    <!-- Custom JavaScript component for click event and geolocation -->
     <script>
         AFRAME.registerComponent('clicker', {
             init: function () {
@@ -18,19 +18,33 @@
                 });
             }
         });
+
+        AFRAME.registerComponent('geolocation-check', {
+            init: function () {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        console.log('Current Position:', position.coords.latitude, position.coords.longitude);
+                    },
+                    error => {
+                        console.error('Geolocation error:', error.message);
+                    }
+                );
+            }
+        });
     </script>
 </head>
 
 <body>
     <!-- A-Frame scene setup -->
     <a-scene vr-mode-ui="enabled: false" cursor='rayOrigin: mouse' raycaster='near: 0; far: 50000'
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'>
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'
+        geolocation-check>
 
         <!-- Camera setup with GPS projection simulation -->
         <a-camera gps-projected-camera></a-camera>
 
         <!-- Glassmorphism Card -->
-        <a-plane gps-projected-entity-place='latitude: 19.845774; longitude: 75.884426' scale="1000 500 500" color="#ffffff"
+        <a-plane gps-projected-entity-place='latitude: 73.9405; longitude: 18.5412' scale="1000 500 500" color="#ffffff"
             opacity="0.35" material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true"
             clicker data-link="https://youtu.be/dQw4w9WgXcQ?si=IUuBZQkjEhn70fvN">
             <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 0.15" position="-0.35 0.25 0"></a-image>

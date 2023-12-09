@@ -24,12 +24,14 @@
           arjsComponent.fakeGps(lon, lat, elev, acc);
         }
       }
+
+      // Call fakeGps when the page loads
+      window.onload = function() {
+        fakeGps(75.887424, 19.840901, null, 0);
+      };
     </script>
   </head>
   <body>
-    <!-- Button to trigger fake GPS -->
-    <button onclick="fakeGps(75.8874238514751, 19.84090006479543, null, 0)">Fake GPS Position</button>
-
     <!-- AR scene -->
     <a-scene
       vr-mode-ui="enabled: false"

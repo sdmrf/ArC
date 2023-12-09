@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html> 
-    <head>
-        <title>AR.js Click Places Example</title>
-        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-        <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
-        <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
-        <script>
-        AFRAME.registerComponent('clicker', {
-            init: function() {
-                this.el.addEventListener('click', e => {
-                    alert('Box clicked!');
-                });
-            }
-        });
-        </script>
-    </head>
-    <body>
+<html>
+  <head>
+    <title>AR.js Click Places Example</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
+    <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
+    <script>
+      AFRAME.registerComponent('clicker', {
+        init: function() {
+          this.el.addEventListener('click', e => {
+            alert('Box clicked!');
+          });
+        }
+      });
+
+      function fakeGps(lon, lat, elev = null, acc = 0) {
+        // Your implementation here (update AR camera or perform other actions)
+        console.log(`Faking GPS position - Longitude: ${lon}, Latitude: ${lat}, Elevation: ${elev}, Accuracy: ${acc}`);
+
+        // Example: Update AR.js camera (this might vary based on AR.js version)
+        const arjsComponent = document.querySelector('a-scene').components.arjs;
+        if (arjsComponent) {
+          arjsComponent.fakeGps(lon, lat, elev, acc);
+        }
+      }
+    </script>
+  </head>
+  <body>
     <a-scene
-        vr-mode-ui="enabled: false"
-        cursor='rayOrigin: mouse'
-        raycaster='near: 0; far: 50000'
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-            <a-camera gps-new-camera></a-camera>
-            <a-box gps-new-entity-place='latitude: 19.840901; longitude: 75.887424' color='red' scale='200 200 200' clicker></a-box>
+      vr-mode-ui="enabled: false"
+      cursor='rayOrigin: mouse'
+      raycaster='near: 0; far: 50000'
+      arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+      renderer='antialias: true; alpha: true'>
+      <a-camera gps-new-camera='latitude: 19.84090006479543; longitude: 75.8874238514751'></a-camera>
+      <a-box gps-new-entity-place='latitude: 19.840901; longitude: 75.887424' color='red' scale='200 200 200' clicker></a-box>
     </a-scene>
-    </body>
+
+    <!-- Trigger the fake GPS function -->
+    <button onclick="fakeGps(75.8874238514751, 19.84090006479543, null, 0)">Fake GPS Position</button>
+  </body>
 </html>

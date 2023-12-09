@@ -27,17 +27,18 @@
     </script>
   </head>
   <body>
+    <!-- Button to trigger fake GPS -->
+    <button onclick="fakeGps(75.8874238514751, 19.84090006479543, null, 0)">Fake GPS Position</button>
+
+    <!-- AR scene -->
     <a-scene
       vr-mode-ui="enabled: false"
       cursor='rayOrigin: mouse'
       raycaster='near: 0; far: 50000'
       arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
       renderer='antialias: true; alpha: true'>
-      <a-camera gps-new-camera='latitude: 19.84090006479543; longitude: 75.8874238514751'></a-camera>
+      <a-camera gps-new-camera></a-camera>
       <a-box gps-new-entity-place='latitude: 19.840901; longitude: 75.887424' color='red' scale='200 200 200' clicker></a-box>
     </a-scene>
-
-    <!-- Trigger the fake GPS function -->
-    <button onclick="fakeGps(75.8874238514751, 19.84090006479543, null, 0)">Fake GPS Position</button>
   </body>
 </html>

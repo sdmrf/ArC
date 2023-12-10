@@ -33,13 +33,13 @@
 <body>
     <!-- A-Frame scene setup -->
     <a-scene vr-mode-ui="enabled: false" cursor='rayOrigin: mouse' raycaster='near: 0; far: 50000'
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'>
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true' geolocation-check>
 
         <!-- Camera setup with GPS projection simulation -->
-        <a-camera gps-new-camera></a-camera>
+        <a-camera gps-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
 
         <!-- Glassmorphism Card -->
-        <a-plane gps-new-entity-place='latitude: 19.8484655; longitude: 75.329945' scale="100 50 50" color="#ffffff">
+        <a-plane gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' scale="100 50 50" color="#ffffff">
 
             <!-- Image and Text Elements -->
             <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 1.5" position="-0.35 0.25 0" z-offset="1"></a-image>

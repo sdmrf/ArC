@@ -13,6 +13,19 @@
                 });
             }
         });
+
+        AFRAME.registerComponent('geolocation-check', {
+            init: function () {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        console.log('Current Position:', position.coords.latitude, position.coords.longitude);
+                    },
+                    error => {
+                        console.error('Geolocation error:', error.message);
+                    }
+                );
+            }
+        });
         </script>
     </head>
     <body>
@@ -21,9 +34,10 @@
         cursor='rayOrigin: mouse'
         raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-            <a-camera gps-new-camera></a-camera>
-            <a-box gps-new-entity-place='latitude: 19.840774; longitude: 75.887426' color='red' scale='200 200 200' clicker></a-box>
+        renderer='antialias: true; alpha: true'
+        geolocation-check>
+        <a-camera gps-new-camera></a-camera>
+        <a-box gps-new-entity-place='latitude: 18.575072; longitude: 73.8038664' color='red' scale='200 200 200' clicker></a-box>
     </a-scene>
     </body>
 </html>

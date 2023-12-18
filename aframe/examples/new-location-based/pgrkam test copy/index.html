@@ -36,10 +36,10 @@
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'>
 
         <!-- Camera setup with GPS projection simulation -->
-        <a-camera gps-new-camera='simulateLatitude: 77.713; simulateLongitude: 29.071'></a-camera>
+        <a-camera gps-new-camera='gpsMinDistance: 5; simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
 
         <!-- Glassmorphism Card -->
-        <a-plane gps-new-entity-place='latitude: 77.713; longitude: 29.072' scale="100 50 50" color="#ffffff">
+        <a-plane look-at='[gps-new-camera]' gps-new-entity-place="latitude: 51.05; longitude: -0.723" scale="100 50 50" color="#ffffff">
 
             <!-- Image and Text Elements -->
             <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 1" position="-0.35 0.25 0"></a-image>

@@ -8,15 +8,11 @@
     <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
     <script>
         const jobid = "job1";
-        setTimeout(function () {
-
-            window.ReactNativeWebView.postMessage(jobid);
-        }, 1000);
 
         AFRAME.registerComponent('clicker', {
             init: function () {
                 this.el.addEventListener('click', e => {
-                    alert('Applied Successfully!');
+                    window.ReactNativeWebView.postMessage(jobid);
                 });
             }
         });

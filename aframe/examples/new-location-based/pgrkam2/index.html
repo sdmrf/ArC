@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pgrkam</title>
+
+    <!-- Include necessary A-Frame and AR.js scripts from CDN -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
-    <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
     <script>
+        // Use a unique identifier for each job
         const jobid = "job1";
 
         AFRAME.registerComponent('clicker', {
             init: function () {
-                this.el.addEventListener('click', e => {
+                // Use the aframe `click` event for better compatibility
+                this.el.addEventListener('click', () => {
+                    // Send a message to React Native WebView with the jobid
                     window.ReactNativeWebView.postMessage(jobid);
                 });
             }
@@ -19,11 +26,14 @@
 
         AFRAME.registerComponent('geolocation-check', {
             init: function () {
-                navigator.geolocation.getCurrentPosition(
+                // Use the `navigator.geolocation.watchPosition` for continuous updates
+                navigator.geolocation.watchPosition(
                     position => {
+                        // Log the current position for testing purposes
                         console.log('Current Position:', position.coords.latitude, position.coords.longitude);
                     },
                     error => {
+                        // Log geolocation errors
                         console.error('Geolocation error:', error.message);
                     }
                 );
@@ -40,7 +50,8 @@
         <!-- Camera setup with GPS projection simulation -->
         <a-camera gps-new-camera='gpsMinDistance: 5; simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
 
-        <a-entity gltf-model="./assets/shobhit-card.glb" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: 51.05; latitude: -0.723;" animation-mixer/>
+        <!-- Add your 3D model with GPS coordinates -->
+        <a-entity gltf-model="./assets/shobhit-card.glb" look-at='[gps-new-camera]' gps-new-entity-place="latitude: 51.05; longitude: -0.723" scale="100 50 50" animation-mixer></a-entity>
     </a-scene>
 </body>
 

@@ -7,6 +7,9 @@
     <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
     <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
     <script>
+        setTimeout(function () {
+            window.ReactNativeWebView.postMessage("hello")
+        }, 1000)
         AFRAME.registerComponent('clicker', {
             init: function () {
                 this.el.addEventListener('click', e => {
@@ -39,7 +42,8 @@
         <a-camera gps-new-camera='gpsMinDistance: 5; simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
 
         <!-- Glassmorphism Card -->
-        <a-plane look-at='[gps-new-camera]' gps-new-entity-place="latitude: 51.05; longitude: -0.723" scale="100 50 50" color="#ffffff">
+        <a-plane look-at='[gps-new-camera]' gps-new-entity-place="latitude: 51.05; longitude: -0.723" scale="100 50 50"
+            color="#ffffff">
 
             <!-- Image and Text Elements -->
             <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 1" position="-0.35 0.25 0"></a-image>
@@ -59,8 +63,8 @@
             </a-plane>
 
             <!-- Apply button plane with the clickable link -->
-            <a-plane color="#FF6B2C" position="0.3 -0.3 0" scale="0.25 0.15 1" material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6"
-                rounded="true" clicker>
+            <a-plane color="#FF6B2C" position="0.3 -0.3 0" scale="0.25 0.15 1"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true" clicker>
                 <a-text value="Apply" color="#000" position="-0.3 0 0" z-offset="0.1"></a-text>
             </a-plane>
         </a-plane>

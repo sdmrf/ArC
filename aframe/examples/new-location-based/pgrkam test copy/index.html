@@ -8,8 +8,11 @@
     <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
     <script>
         setTimeout(function () {
-            window.ReactNativeWebView.postMessage("hello")
-        }, 1000)
+            console.log("helloclg");
+            console.log(window.ReactNativeWebView);
+            window.ReactNativeWebView.postMessage("hello");
+        }, 1000);
+
         AFRAME.registerComponent('clicker', {
             init: function () {
                 this.el.addEventListener('click', e => {

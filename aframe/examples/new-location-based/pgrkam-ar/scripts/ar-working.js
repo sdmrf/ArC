@@ -27,7 +27,7 @@ window.onload = () => {
 
             const planeA = document.createElement('a-plane');
             // First
-            planeA.setAttribute('gps-entity-place', `latitude: ${longitude}; longitude: ${latitude};`);
+            planeA.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
             planeA.setAttribute('look-at', '[gps-new-camera]');
             planeA.setAttribute('scale', '100 50 50');
             planeA.setAttribute('color', '#ffffff');

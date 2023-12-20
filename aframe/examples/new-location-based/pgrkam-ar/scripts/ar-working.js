@@ -75,7 +75,7 @@ window.onload = () => {
             // Additional planes and their child elements
             const financePlane = createInfoPlane(job.specialization, '-0.3 -0.3 0', '0.25 0.15 1', '#CBC9D4', '4.25');
             const fullTimePlane = createInfoPlane(job.jobType, '0 -0.3 0', '0.25 0.15 1', '#CBC9D4', '4.25');
-            const applyPlane = createInfoPlane('Apply', '0.3 -0.3 0', '0.25 0.15 1', '#FF6B2C');
+            const applyPlane = createInfoPlane('Apply', '0.3 -0.3 0', '0.25 0.15 1', '#FF6B2C', '4.25');
 
             // Append additional planes to the main <a-plane>
             planeA.appendChild(financePlane);

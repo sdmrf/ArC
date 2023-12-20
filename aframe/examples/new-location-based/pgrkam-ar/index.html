@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script type='text/javascript' src='../../../../three.js/build/ar-threex-location-only.js'></script>
     <script type='text/javascript' src='../../../build/aframe-ar-nft.js'></script>
-    <script type='text/javascript' src='./scripts/ar-working.js'></script>
+    <!-- <script type='text/javascript' src='./scripts/ar-working.js'></script> -->
 
     <script>
         const jobid = "job1";
@@ -38,7 +38,7 @@
     <a-scene vr-mode-ui="enabled: false" cursor='rayOrigin: mouse' raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' renderer='antialias: true; alpha: true'>
 
-        <!-- <a-camera gps-new-camera></a-camera>
+        <a-camera gps-new-camera='gpsMinDistance: 5; simulateLatitude: 29.070; simulateLongitude: 77.710'></a-camera>
 
         <a-plane look-at='[gps-new-camera]' gps-new-entity-place='latitude: 29.072; longitude: 77.713' scale="100 50 50"
             color="#ffffff">
@@ -62,7 +62,55 @@
                 material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true" clicker>
                 <a-text value="Apply" color="#000" position="-0.3 0 0" z-offset="0.1"></a-text>
             </a-plane>
-        </a-plane> -->
+        </a-plane>
+
+        <a-plane look-at='[gps-new-camera]' gps-new-entity-place='latitude: 29.078; longitude: 77.716' scale="100 50 50"
+            color="#ffffff">
+
+            <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 1" position="-0.35 0.25 0"></a-image>
+            <a-text value="Credit Analyst" color="#150B3D" position="-0.2 0.3 0" width="1.25"></a-text>
+            <a-text value="Punjab National Bank" color="#524B6B" position="-0.2 0.2 0" width="1.25"></a-text>
+            <a-text value="Rs. 6 - 7 LPA" color="#150B3D" position="-0.45 -0.05 0" width="1.35"></a-text>
+
+            <a-plane color="#CBC9D4" position="-0.3 -0.3 0" scale="0.25 0.15 1" opacity="0.2"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true">
+                <a-text value="Finance" color="#000" position="-0.35 0 0" z-offset="0.1" width="4.25"></a-text>
+            </a-plane>
+
+            <a-plane color="#CBC9D4" position="0 -0.3 0" scale="0.25 0.15 1" opacity="0.2"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true">
+                <a-text value="Full Time" color="#000" position="-0.4 0 0" z-offset="0.1" width="4.25"></a-text>
+            </a-plane>
+
+            <a-plane color="#FF6B2C" position="0.3 -0.3 0" scale="0.25 0.15 1"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true" clicker>
+                <a-text value="Apply" color="#000" position="-0.3 0 0" z-offset="0.1"></a-text>
+            </a-plane>
+        </a-plane>
+
+        <a-plane look-at='[gps-new-camera]' gps-new-entity-place='latitude: 29.075; longitude: 77.712' scale="100 50 50"
+            color="#ffffff">
+
+            <a-image src="./assets/Punjab national bank.png" scale="0.15 0.25 1" position="-0.35 0.25 0"></a-image>
+            <a-text value="Credit Analyst" color="#150B3D" position="-0.2 0.3 0" width="1.25"></a-text>
+            <a-text value="Punjab National Bank" color="#524B6B" position="-0.2 0.2 0" width="1.25"></a-text>
+            <a-text value="Rs. 6 - 7 LPA" color="#150B3D" position="-0.45 -0.05 0" width="1.35"></a-text>
+
+            <a-plane color="#CBC9D4" position="-0.3 -0.3 0" scale="0.25 0.15 1" opacity="0.2"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true">
+                <a-text value="Finance" color="#000" position="-0.35 0 0" z-offset="0.1" width="4.25"></a-text>
+            </a-plane>
+
+            <a-plane color="#CBC9D4" position="0 -0.3 0" scale="0.25 0.15 1" opacity="0.2"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true">
+                <a-text value="Full Time" color="#000" position="-0.4 0 0" z-offset="0.1" width="4.25"></a-text>
+            </a-plane>
+
+            <a-plane color="#FF6B2C" position="0.3 -0.3 0" scale="0.25 0.15 1"
+                material="shader: standard; transparent: true; roughness: 0.17; metalness: 0.6" rounded="true" clicker>
+                <a-text value="Apply" color="#000" position="-0.3 0 0" z-offset="0.1"></a-text>
+            </a-plane>
+        </a-plane>
     </a-scene>
 </body>
 

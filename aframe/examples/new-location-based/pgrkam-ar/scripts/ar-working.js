@@ -24,16 +24,6 @@ window.onload = () => {
 
             // Sending data
 
-            if (!AFRAME.components.clicker) {
-                AFRAME.registerComponent('clicker', {
-                    init: function () {
-                        this.el.addEventListener('click', e => {
-                            window.ReactNativeWebView.postMessage(job);
-                        });
-                    }
-                });
-            }
-
             console.log(latitude, longitude);
 
             // Create the main <a-plane> element
@@ -42,7 +32,7 @@ window.onload = () => {
             planeA.setAttribute('look-at', '[gps-new-camera]');
             planeA.setAttribute('scale', '100 50 50');
             planeA.setAttribute('color', '#ffffff');
-            planeA.setAttribute('clicker', '');
+            planeA.setAttribute('clicker');
 
             // Create child elements within the main <a-plane>
             const image = document.createElement('a-image');

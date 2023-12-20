@@ -23,17 +23,17 @@ window.onload = () => {
             const latitude = job.latitude;
             const longitude = job.longitude;
 
-            // add place name
-            const placeText = document.createElement('a-link');
-            placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            placeText.setAttribute('title', job.companyName);
-            placeText.setAttribute('scale', '15 15 15');
-            
-            placeText.addEventListener('loaded', () => {
-                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-            });
+            console.log(latitude, longitude);
 
-            scene.appendChild(placeText);
+            const planeA = document.createElement('a-plane');
+            // First
+            planeA.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            planeA.setAttribute('look-at', '[gps-new-camera]');
+            planeA.setAttribute('scale', '100 50 50');
+            planeA.setAttribute('color', '#ffffff');
+
+            scene.appendChild(planeA);
+
         });
     })
 }
